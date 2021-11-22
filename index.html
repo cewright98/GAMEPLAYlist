@@ -49,6 +49,7 @@
                 <option value="fantasy">Fantasy</option>
                 <option value="fighting">Fighting</option>
                 <option value="horror">Horror</option>
+                <option value="open-world">Open World</option>
                 <option value="racing">Racing</option>
                 <option value="shooter">Shooter</option>
                 <option value="space">Space</option>
@@ -57,6 +58,46 @@
                 <option value="survival">Survival</option>
                 <option value="zombie">Zombie</option>
             </select>
+            <br>
+            <button>Search</button>
+        </form>
+    </div>
+    <div>
+        <!-- This is the music column -->
+        <form>
+            <!-- Music genre options -->
+            <label for="genres">Pick a Music Genre: </label>
+            <select name="genres">
+                <option value="blues">Blues</option>
+                <option value="classical">Classical</option>
+                <option value="country">Country</option>
+                <option value="electronic">Electronic</option>
+                <option value="indie">Indie</option>
+                <option value="jazz">Jazz</option>
+                <option value="k-pop">K-Pop</option>
+                <option value="metal">Metal</option>
+                <option value="pop">Pop</option>
+                <option value="r&b">R&B</option>
+                <option value="rap">Rap</option>
+                <option value="rock">Rock</option>
+            </select>
+            <br>
+            <button>Search</button>
+            <br>
+            <p>OR</p>
+            
+            <!-- Music keyword entry -->
+            <label for="keyword">Search Music by Keyword: </label>
+            <input type="text" name="keyword">
+            <br>
+            <button>Search</button>
+            <br>
+            <p>OR</p>
+
+            <!-- Music based on game selection -->
+            <label for="random">Get Music Recommendations based on your Game Choice!</label>
+            <br>
+            <button name="random">Search</button>
         </form>
     </div>
     <script src="./assets/script.js"></script>
