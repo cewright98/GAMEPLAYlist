@@ -8,8 +8,57 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
-    <header>GAME<span class="text-green-400">PLAY</span>list</header>
+<body class="bg-gray-50"> 
+    <header class="text-center">
+        <h1 class="text-5xl">
+            GAME<span class="text-green-600 font-bold">PLAY</span>list
+        </h1>
+    </header>
+    <div>
+        <!-- This is the games column -->
+        <form>
+            <!-- Game platform options -->
+            <label for="platforms">Pick a Game Platform: </label>
+            <select name="platforms">
+                <option value="All">All</option>
+                <option value="PC">PC</option>
+                <option value="Browser">Browser</option>
+            </select>
+            </label>
+
+            <br>
+
+            <!-- Game sorting options -->
+            <label for="sort">Sort by: </label>
+            <select name="sort">
+                <option value="release-date">Release date</option>
+                <option value="popularity">Popularity</option>
+                <option value="alphabetical">Alphabetical</option>
+                <option value="relevance">Relevance</option>
+            </select>
+
+            <br>
+
+            <!-- Game category options -->
+            <label for="categories">Pick a Game Category: </label>
+            <select name="categories">
+                <option value="action">Action</option>
+                <option value="anime">Anime</option>
+                <option value="battle-royale">Battle Royale</option>
+                <option value="card">Card</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="fighting">Fighting</option>
+                <option value="horror">Horror</option>
+                <option value="racing">Racing</option>
+                <option value="shooter">Shooter</option>
+                <option value="space">Space</option>
+                <option value="sports">Sports</option>
+                <option value="strategy">Strategy</option>
+                <option value="survival">Survival</option>
+                <option value="zombie">Zombie</option>
+            </select>
+        </form>
+    </div>
     <script src="./assets/script.js"></script>
 </body>
 </html>
