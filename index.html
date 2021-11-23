@@ -15,9 +15,9 @@
         </h1>
     </header>
     <section class ="split-container">
-    <div>
+    <div class="section left">
         <!-- This is the games column -->
-        <section class="section left">
+        <section>
             <!-- Game platform options -->
             <label for="platforms">Pick a Game Platform: </label>
             <select name="platforms" id="game-platform">
@@ -62,10 +62,14 @@
             <br>
             <button id="game-search-button">Search</button>
         </section>
+
+        <section id="game-results">
+
+        </section>
     </div>
     <div class="section right">
         <!-- This is the music column -->
-        <form>
+        <section>
             <!-- Music genre options -->
             <label for="genres">Pick a Music Genre: </label>
             <select name="genres">
@@ -99,7 +103,7 @@
             <label for="random">Get Music Recommendations based on your Game Choice!</label>
             <br>
             <button name="random">Search</button>
-        </form>
+        </section>
     </div>
 </section>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
