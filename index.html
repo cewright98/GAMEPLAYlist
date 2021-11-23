@@ -17,13 +17,13 @@
     <section class ="split-container">
     <div>
         <!-- This is the games column -->
-        <form class="section left">
+        <section class="section left">
             <!-- Game platform options -->
             <label for="platforms">Pick a Game Platform: </label>
-            <select name="platforms">
-                <option value="All">All</option>
-                <option value="PC">PC</option>
-                <option value="Browser">Browser</option>
+            <select name="platforms" id="game-platform">
+                <option value="all">All</option>
+                <option value="pc">PC</option>
+                <option value="browser">Browser</option>
             </select>
             </label>
 
@@ -31,7 +31,7 @@
 
             <!-- Game sorting options -->
             <label for="sort">Sort by: </label>
-            <select name="sort">
+            <select name="sort" id="game-sort">
                 <option value="release-date">Release date</option>
                 <option value="popularity">Popularity</option>
                 <option value="alphabetical">Alphabetical</option>
@@ -42,7 +42,7 @@
 
             <!-- Game category options -->
             <label for="categories">Pick a Game Category: </label>
-            <select name="categories">
+            <select name="categories" id="game-category">
                 <option value="action">Action</option>
                 <option value="anime">Anime</option>
                 <option value="battle-royale">Battle Royale</option>
@@ -60,8 +60,8 @@
                 <option value="zombie">Zombie</option>
             </select>
             <br>
-            <button>Search</button>
-        </form>
+            <button id="game-search-button">Search</button>
+        </section>
     </div>
     <div class="section right">
         <!-- This is the music column -->
@@ -102,6 +102,7 @@
         </form>
     </div>
 </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
