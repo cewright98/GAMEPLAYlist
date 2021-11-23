@@ -32,18 +32,30 @@ var loadGames = function(data) {
 
         // create div for each result
         var gameListItem = document.createElement("div");
+        gameListItem.classList.add("result-container");
+
         // create link for each result
         var gameListItemName = document.createElement("a");
         gameListItemName.textContent = data[gameIndex].title;
         gameListItemName.href = data[gameIndex].game_url;
         gameListItemName.setAttribute("target", "blank");
+        gameListItemName.classList.add("result-name");
 
         // append link to div
         gameListItem.appendChild(gameListItemName);
 
+        // add description for each result
+        var gameListItemDescr = document.createElement("p");
+        gameListItemDescr.textContent = data[gameIndex].short_description;
+        gameListItemDescr.classList.add("result-description");
+
+        // append description to div
+        gameListItem.appendChild(gameListItemDescr);
+
         // create thumbnail for each result
         var gameListItemImg = document.createElement("img");
         gameListItemImg.src = data[gameIndex].thumbnail;
+        gameListItemImg.classList.add("result-thumbnail");
 
         // append thumbnail to div
         gameListItem.appendChild(gameListItemImg);
