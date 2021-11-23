@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 1;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    background-color: pink;
+    left: 0
+}
+
+.right {
+    background-color: blue;
+    right: 0;
+}
+
+.split-container {
+    flex: auto;
+}
