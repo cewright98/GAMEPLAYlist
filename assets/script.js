@@ -1,8 +1,4 @@
 var getGames = function(platform, sort, category) {
-    //console.log(platform);
-    //console.log(sort);
-    //console.log(category);
-
     // format api url
     var apiUrl = "https://www.freetogame.com/api/games?sort-by=" + sort + "&category=" + category;
 
@@ -66,6 +62,9 @@ var loadGames = function(data) {
 }; 
 
 $("#game-search-button").click(function() {
+    // clear previous results
+    $("#game-results").empty();
+
     var gamePlatform = $("#game-platform").val();
     var gameSort = $("#game-sort").val();
     var gameCategory = $("#game-category").val();
