@@ -1,6 +1,8 @@
-var getGames = function(platform, sort, category) {
+var gameResults = document.querySelector("#game-results");
+
+var getGames = function(platform, category, number) {
     // format api url
-    var apiUrl = "https://www.freetogame.com/api/games?sort-by=" + sort + "&category=" + category;
+    var apiUrl = "https://www.freetogame.com/api/games?category=" + category;
 
     if (platform !== "all") {
         apiUrl = apiUrl + "&platform=" + platform;
@@ -10,30 +12,37 @@ var getGames = function(platform, sort, category) {
     apiUrl = "https://cors-anywhere.herokuapp.com/" + apiUrl;
 
     // fetch api url
-    fetch(apiUrl, {}).then(function(response) {
+    fetch(apiUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
                 console.log(data);
-                loadGames(data);
+                if (data.status === 0) {
+                    gameResults.textContent = "No results found.";
+                } else {
+                    loadGames(data, number);
+                }
             });
         }
     });
 };
 
-var loadGames = function(data) {
+var loadGames = function(data, number) {
+    // check for data length
+    if (data.length < number) {
+        var resultLength = data.length;
+    } else {
+        resultLength = number;
+    }
     // load ten games from data
-    for (var i = 0; i < 10; i++) {
-        // get random game from data
-        gameIndex = Math.floor(Math.random() * data.length);
-
+    for (var i = 0; i < resultLength; i++) {
         // create div for each result
         var gameListItem = document.createElement("div");
         gameListItem.classList.add("result-container");
 
         // create link for each result
         var gameListItemName = document.createElement("a");
-        gameListItemName.textContent = data[gameIndex].title;
-        gameListItemName.href = data[gameIndex].game_url;
+        gameListItemName.textContent = data[i].title;
+        gameListItemName.href = data[i].game_url;
         gameListItemName.setAttribute("target", "blank");
         gameListItemName.classList.add("result-name");
 
@@ -42,7 +51,7 @@ var loadGames = function(data) {
 
         // add description for each result
         var gameListItemDescr = document.createElement("p");
-        gameListItemDescr.textContent = data[gameIndex].short_description;
+        gameListItemDescr.textContent = data[i].short_description;
         gameListItemDescr.classList.add("result-description");
 
         // append description to div
@@ -50,14 +59,14 @@ var loadGames = function(data) {
 
         // create thumbnail for each result
         var gameListItemImg = document.createElement("img");
-        gameListItemImg.src = data[gameIndex].thumbnail;
+        gameListItemImg.src = data[i].thumbnail;
         gameListItemImg.classList.add("result-thumbnail");
 
         // append thumbnail to div
         gameListItem.appendChild(gameListItemImg);
 
         // append result to results section
-        $("#game-results").append(gameListItem);
+        gameResults.append(gameListItem);
     }
 }; 
 
@@ -66,8 +75,8 @@ $("#game-search-button").click(function() {
     $("#game-results").empty();
 
     var gamePlatform = $("#game-platform").val();
-    var gameSort = $("#game-sort").val();
     var gameCategory = $("#game-category").val();
+    var gameNumber = $("#game-number").val();
 
-    getGames(gamePlatform, gameSort, gameCategory);
+    getGames(gamePlatform, gameCategory, gameNumber);
 });
