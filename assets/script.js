@@ -134,6 +134,7 @@ var getMusic = function (keyword) {
 $("#game-search-button").click(function() {
     // clear previous results
     $("#game-results").empty();
+    $("#music-results").empty();
 
     var gamePlatform = $("#game-platform").val();
     gameCategory = $("#game-category").val();
