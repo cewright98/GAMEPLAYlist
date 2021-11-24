@@ -14,34 +14,34 @@
             GAME<span class="text-green-600 font-bold">PLAY</span>list
         </h1>
     </header>
-    <div>
+    <section class ="split-container">
+    <div class="section left">
         <!-- This is the games column -->
-        <form>
+        <section>
             <!-- Game platform options -->
             <label for="platforms">Pick a Game Platform: </label>
-            <select name="platforms">
-                <option value="All">All</option>
-                <option value="PC">PC</option>
-                <option value="Browser">Browser</option>
+            <select name="platforms" id="game-platform">
+                <option value="all">All</option>
+                <option value="pc">PC</option>
+                <option value="browser">Browser</option>
             </select>
             </label>
 
             <br>
 
             <!-- Game sorting options -->
-            <label for="sort">Sort by: </label>
-            <select name="sort">
-                <option value="release-date">Release date</option>
-                <option value="popularity">Popularity</option>
-                <option value="alphabetical">Alphabetical</option>
-                <option value="relevance">Relevance</option>
+            <label for="number">Results per page: </label>
+            <select name="number" id="game-number">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
             </select>
 
             <br>
 
             <!-- Game category options -->
             <label for="categories">Pick a Game Category: </label>
-            <select name="categories">
+            <select name="categories" id="game-category">
                 <option value="action">Action</option>
                 <option value="anime">Anime</option>
                 <option value="battle-royale">Battle Royale</option>
@@ -59,12 +59,16 @@
                 <option value="zombie">Zombie</option>
             </select>
             <br>
-            <button>Search</button>
-        </form>
+            <button id="game-search-button">Search</button>
+        </section>
+
+        <section id="game-results">
+
+        </section>
     </div>
-    <div>
+    <div class="section right">
         <!-- This is the music column -->
-        <form>
+        <section>
             <!-- Music genre options -->
             <label for="genres">Pick a Music Genre: </label>
             <select name="genres">
@@ -98,8 +102,10 @@
             <label for="random">Get Music Recommendations based on your Game Choice!</label>
             <br>
             <button name="random">Search</button>
-        </form>
+        </section>
     </div>
+</section>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
