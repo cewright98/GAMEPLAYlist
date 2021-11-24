@@ -1,5 +1,6 @@
 var gameResults = document.querySelector("#game-results");
 var musicResults = document.querySelector("#music-results");
+var gameCategory = "";
 
 var getGames = function(platform, category, number) {
     // format api url
@@ -16,7 +17,7 @@ var getGames = function(platform, category, number) {
     fetch(gameApiUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data);
+                //console.log(data);
                 if (data.status === 0) {
                     gameResults.textContent = "No results found.";
                 } else {
@@ -123,7 +124,7 @@ var getMusic = function (keyword) {
     fetch(musicApiUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data);
+                //console.log(data);
                 loadMusic(data);
             });
         }
@@ -135,7 +136,7 @@ $("#game-search-button").click(function() {
     $("#game-results").empty();
 
     var gamePlatform = $("#game-platform").val();
-    var gameCategory = $("#game-category").val();
+    gameCategory = $("#game-category").val();
     var gameNumber = $("#game-number").val();
 
     getGames(gamePlatform, gameCategory, gameNumber);
@@ -144,7 +145,7 @@ $("#game-search-button").click(function() {
 $("#music-keyword-search").click(function() {
     // clear previous results
     $("#music-results").empty();
-    
+
     var musicKeyword = $("#music-keyword").val();
 
     getMusic(musicKeyword);
@@ -154,7 +155,59 @@ $("#music-random-search").click(function() {
     // clear previous results
     $("#music-results").empty();
 
-    var musicKeyword = $("#game-category").val();
+    var musicKeyword = "";
 
-    getMusic(musicKeyword);
+    if (!gameCategory) {
+        musicResults.textContent = "Please search for a game first!"
+    } else {
+        switch(gameCategory) {
+            case "action": 
+                musicKeyword = "banger";
+                break;
+            case "anime": 
+                musicKeyword = "k-pop";
+                break;
+            case "battle-royale": 
+                musicKeyword = "instrumental";
+                break;
+            case "card": 
+                musicKeyword = "jazz";
+                break;
+            case "fantasy": 
+                musicKeyword = "orchestra";
+                break;
+            case "fighting": 
+                musicKeyword = "fight";
+                break;
+            case "horror": 
+                musicKeyword = "scary";
+                break;
+            case "open-world": 
+                musicKeyword = "ethereal";
+                break;
+            case "racing": 
+                musicKeyword = "pop";
+                break;
+            case "shooter": 
+                musicKeyword = "rap";
+                break;
+            case "space": 
+                musicKeyword = "space";
+                break;
+            case "sports": 
+                musicKeyword = "motivation";
+                break;
+            case "strategy": 
+                musicKeyword = "classical";
+                break;
+            case "survival": 
+                musicKeyword = "intense";
+                break;
+            case "zombie": 
+                musicKeyword = "spooky";
+                break;
+        }
+        
+        getMusic(musicKeyword);
+    }
 });
