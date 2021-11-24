@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css" />
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>Document</title>
 </head>
 <body class="bg-gray-50"> 
@@ -68,11 +69,11 @@
     </div>
     <div class="section right">
         <!-- This is the music column -->
-        <form class="centered text">
+        <section class="centered text">
             <!-- Music genre options -->
         <div class="genre">
             <label for="genres">Pick a Music Genre: </label>
-            <select class="options-text" name="genres">
+            <select class="options-text" name="genres" id="music-keyword">
                 <option value="blues">Blues</option>
                 <option value="classical">Classical</option>
                 <option value="country">Country</option>
@@ -97,7 +98,7 @@
             <label for="keyword">Search Music by Keyword: </label>
             <input class="options-text" type="text" name="keyword">
             <br>
-            <button class="music-btn">Search</button>
+            <button class="music-btn" id="music-keyword-search">Search</button>
             <br>
             
         </div>
@@ -106,10 +107,13 @@
         <div class="random">
             <label for="random">Get Music Recommendations based on your Game Choice!</label>
             <br>
-            <button class="music-btn" name="random">Search</button>
+            <button class="music-btn" name="random" id="music-random-search">Search</button>
         </div>
         
-        </form>
+        </section>
+        <section id="music-results">
+
+        </section>
     </div>
 <!--</section>-->
     <script src="./assets/script.js"></script>
