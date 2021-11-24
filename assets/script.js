@@ -1,18 +1,19 @@
 var gameResults = document.querySelector("#game-results");
+var musicResults = document.querySelector("#music-results");
 
 var getGames = function(platform, category, number) {
     // format api url
-    var apiUrl = "https://www.freetogame.com/api/games?category=" + category;
+    var gameApiUrl = "https://www.freetogame.com/api/games?category=" + category;
 
     if (platform !== "all") {
-        apiUrl = apiUrl + "&platform=" + platform;
+        gameApiUrl = gameApiUrl + "&platform=" + platform;
     }
 
     // add proxy to resolve CORS error
-    apiUrl = "https://cors-anywhere.herokuapp.com/" + apiUrl;
+    gameApiUrl = "https://cors-anywhere.herokuapp.com/" + gameApiUrl;
 
     // fetch api url
-    fetch(apiUrl).then(function(response) {
+    fetch(gameApiUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
                 console.log(data);
@@ -70,6 +71,65 @@ var loadGames = function(data, number) {
     }
 }; 
 
+var loadMusic = function(data) {
+    // check for data length
+    if (data.length < 10) {
+        var resultLength = data.data.length;
+    } else {
+        resultLength = 10;
+    }
+    // load playlists from data
+    for (var i = 0; i < resultLength; i++) {
+        // create div for each result
+        var musicListItem = document.createElement("div");
+        musicListItem.classList.add("result-container");
+
+        // create link for each result
+        var musicListItemName = document.createElement("a");
+        musicListItemName.textContent = data.data[i].title;
+        musicListItemName.href = data.data[i].link;
+        musicListItemName.setAttribute("target", "blank");
+        musicListItemName.classList.add("result-name");
+
+        // append link to div
+        musicListItem.appendChild(musicListItemName);
+
+        // add number of tracks for each result
+        var musicListItemNum = document.createElement("p");
+        musicListItemNum.textContent = "Number of tracks: " + data.data[i].nb_tracks;
+        musicListItemNum.classList.add("result-description");
+
+        // append number of tracks to div
+        musicListItem.appendChild(musicListItemNum);
+
+        // create thumbnail for each result
+        var musicListItemImg = document.createElement("img");
+        musicListItemImg.src = data.data[i].picture;
+        musicListItemImg.classList.add("result-thumbnail");
+
+        // append thumbnail to div
+        musicListItem.appendChild(musicListItemImg);
+
+        // append result to results section
+        musicResults.append(musicListItem);
+    }
+};
+
+var getMusic = function (keyword) {
+    var musicApiUrl = "https://api.deezer.com/search/playlist?q=" + keyword;
+
+    musicApiUrl = "https://cors-anywhere.herokuapp.com/" + musicApiUrl;
+    
+    fetch(musicApiUrl).then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data) {
+                console.log(data);
+                loadMusic(data);
+            });
+        }
+    });
+};
+
 $("#game-search-button").click(function() {
     // clear previous results
     $("#game-results").empty();
@@ -79,4 +139,22 @@ $("#game-search-button").click(function() {
     var gameNumber = $("#game-number").val();
 
     getGames(gamePlatform, gameCategory, gameNumber);
+});
+
+$("#music-keyword-search").click(function() {
+    // clear previous results
+    $("#music-results").empty();
+    
+    var musicKeyword = $("#music-keyword").val();
+
+    getMusic(musicKeyword);
+});
+
+$("#music-random-search").click(function() {
+    // clear previous results
+    $("#music-results").empty();
+
+    var musicKeyword = $("#game-category").val();
+
+    getMusic(musicKeyword);
 });
