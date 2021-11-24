@@ -11,7 +11,7 @@ var getGames = function(platform, category, number) {
     }
 
     // add proxy to resolve CORS error
-    gameApiUrl = "https://cors-anywhere.herokuapp.com/" + gameApiUrl;
+    gameApiUrl = "https://api.codetabs.com/v1/proxy?quest=" + gameApiUrl;
 
     // fetch api url
     fetch(gameApiUrl).then(function(response) {
@@ -119,7 +119,7 @@ var loadMusic = function(data) {
 var getMusic = function (keyword) {
     var musicApiUrl = "https://api.deezer.com/search/playlist?q=" + keyword;
 
-    musicApiUrl = "https://cors-anywhere.herokuapp.com/" + musicApiUrl;
+    musicApiUrl = "https://api.codetabs.com/v1/proxy?quest=" + musicApiUrl;
     
     fetch(musicApiUrl).then(function(response) {
         if (response.ok) {
