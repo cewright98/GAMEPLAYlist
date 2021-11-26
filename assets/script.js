@@ -149,6 +149,7 @@ var addInputOption = function(keyword) {
 };
 
 var loadDatalist = function() {
+    inputOptionIndex = localStorage.getItem("index");
     var str = "";
     for (var i = 0; i <= inputOptionIndex; i++) {
         str += "<option value='" + localStorage.getItem(i) + "'>";
@@ -246,3 +247,5 @@ $("#music-random-search").click(function() {
         getMusic(musicKeyword);
     }
 });
+
+loadDatalist();
