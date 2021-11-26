@@ -152,7 +152,9 @@ var loadDatalist = function() {
     inputOptionIndex = localStorage.getItem("index");
     var str = "";
     for (var i = 0; i <= inputOptionIndex; i++) {
-        str += "<option value='" + localStorage.getItem(i) + "'>";
+        if (localStorage.getItem(i)) {
+            str += "<option value='" + localStorage.getItem(i) + "'>";
+        }
     }
     keywordDatalist.innerHTML = str;
     inputOptionIndex++;
