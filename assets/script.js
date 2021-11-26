@@ -128,7 +128,7 @@ var getMusic = function (keyword) {
     fetch(musicApiUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data);
+                //console.log(data);
                 loadMusic(data);
             });
         }
@@ -152,6 +152,10 @@ $("#music-keyword-search").click(function() {
     $("#music-results").empty();
 
     var musicKeyword = $("#music-keyword").val();
+
+    // clear text box
+    var musicKeywordInput = document.querySelector("#music-keyword");
+    musicKeywordInput.value = "";
 
     getMusic(musicKeyword);
 });
