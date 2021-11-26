@@ -87,7 +87,11 @@ var loadMusic = function(data) {
 
         // create link for each result
         var musicListItemName = document.createElement("a");
-        musicListItemName.textContent = data.data[i].title;
+        if (data.data[i].title === "undefined") {
+            musicListItemName.textContent = "Playlist";
+        } else {
+            musicListItemName.textContent = data.data[i].title;
+        }
         musicListItemName.href = data.data[i].link;
         musicListItemName.setAttribute("target", "blank");
         musicListItemName.classList.add("result-name");
@@ -124,7 +128,7 @@ var getMusic = function (keyword) {
     fetch(musicApiUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                //console.log(data);
+                console.log(data);
                 loadMusic(data);
             });
         }
