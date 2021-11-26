@@ -1,5 +1,7 @@
 var gameResults = document.querySelector("#game-results");
 var musicResults = document.querySelector("#music-results");
+var keywordDatalist = document.querySelector("#keyword-datalist");
+var inputOptionIndex = 0;
 var gameCategory = "";
 
 var getGames = function(platform, category, number) {
@@ -87,11 +89,7 @@ var loadMusic = function(data) {
 
         // create link for each result
         var musicListItemName = document.createElement("a");
-        if (data.data[i].title === "undefined") {
-            musicListItemName.textContent = "Playlist";
-        } else {
-            musicListItemName.textContent = data.data[i].title;
-        }
+        musicListItemName.textContent = data.data[i].title;
         musicListItemName.href = data.data[i].link;
         musicListItemName.setAttribute("target", "blank");
         musicListItemName.classList.add("result-name");
@@ -135,6 +133,30 @@ var getMusic = function (keyword) {
     });
 };
 
+var addInputOption = function(keyword) {
+    var createDatalistEl = true;
+    for (var i = 0; i < inputOptionIndex; i++) {
+        if (localStorage.getItem(i) === keyword) {
+            createDatalistEl = false;
+        }
+    }
+
+    if (createDatalistEl) {
+        localStorage.setItem(inputOptionIndex, keyword);
+        localStorage.setItem("index", inputOptionIndex);
+        loadDatalist();
+    }
+};
+
+var loadDatalist = function() {
+    var str = "";
+    for (var i = 0; i <= inputOptionIndex; i++) {
+        str += "<option value='" + localStorage.getItem(i) + "'>";
+    }
+    keywordDatalist.innerHTML = str;
+    inputOptionIndex++;
+};
+
 $("#game-search-button").click(function() {
     // clear previous results
     $("#game-results").empty();
@@ -151,13 +173,17 @@ $("#music-keyword-search").click(function() {
     // clear previous results
     $("#music-results").empty();
 
-    var musicKeyword = $("#music-keyword").val();
+    if ($("#music-keyword").val()) {
+        var musicKeyword = $("#music-keyword").val();
 
-    // clear text box
-    var musicKeywordInput = document.querySelector("#music-keyword");
-    musicKeywordInput.value = "";
-
-    getMusic(musicKeyword);
+        // clear text box
+        var musicKeywordInput = document.querySelector("#music-keyword");
+        musicKeywordInput.value = "";
+    
+        addInputOption(musicKeyword);
+    
+        getMusic(musicKeyword);
+    } 
 });
 
 $("#music-random-search").click(function() {
