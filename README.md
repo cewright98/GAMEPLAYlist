@@ -1,7 +1,7 @@
 # GamePlaylist
 
 ## Purpose
-A website where the user can search for free online games based on their selected parameters, and then search for music based on either a user input keyword or the game category selected.
+A website where the user can search for free online games based on their selected parameters, and then search for music based on the game category selected or user input keyword.
 
 ## Components
 * Split-screen layout to allow independent scrolling for games and music results
