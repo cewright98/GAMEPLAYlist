@@ -15,8 +15,8 @@
             GAME<span class="text-green-600 font-bold">PLAY</span>list
         </h1>
     </header>
-    <section class ="split-container">
-    <div class="section left">
+    <section class ="flex-auto">
+    <div class="h-screen w-3/6 fixed z-10 overflow-x-hidden pt-5 "> <!--section left-->
         <!-- This is the games column -->
         <section>
             <!-- Game platform options -->
@@ -67,13 +67,13 @@
 
         </section>
     </div>
-    <div class="section right">
+    <div class="section right h-screen w-3/6 fixed z-10 overflow-x-hidden pt-5 right-0 text-lg"> <!--section right-->
         <!-- This is the music column -->
-        <section class="centered text">
+        <section class="grid grid-cols-2 text-pink-400 align-top align-baseline">
             <!-- Music genre options -->
         <div class="genre">
             <label for="genres">Pick a Music Genre: </label>
-            <select class="options-text" name="genres" id="music-keyword">
+            <select class="text-black border-black border-2 border-solid" name="genres" id="music-keyword">
                 <option value="blues">Blues</option>
                 <option value="classical">Classical</option>
                 <option value="country">Country</option>
@@ -92,11 +92,12 @@
             <br>
             
         </div>
-            
+       
+
             <!-- Music keyword entry -->
         <div class="keyword">
             <label for="keyword">Search Music by Keyword: </label>
-            <input class="options-text" type="text" name="keyword">
+            <input class="text-black border-black border-2 border-solid" type="text" name="keyword">
             <br>
             <button class="music-btn" id="music-keyword-search">Search</button>
             <br>
@@ -109,13 +110,17 @@
             <br>
             <button class="music-btn" name="random" id="music-random-search">Search</button>
         </div>
-        
+        <img class="jukebox object-scale-down"
+            src="./assets/images/jukebox.png"
+            alt="colorful retro jukebox"/>
         </section>
-        <section id="music-results">
+        <section id="music-results" class="music-sec">
 
         </section>
+        <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </div>
 <!--</section>-->
     <script src="./assets/script.js"></script>
+    
 </body>
 </html>
