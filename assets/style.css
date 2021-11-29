@@ -3,15 +3,38 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+@keyframes movement{
+    0% {background-color: red; left: 0px; top: 0px;}
+    10% {background-color: violet; transform: rotateZ(36deg); left: 20px;}
+    20% {background-color: peachpuff; transform: rotateZ(72deg); left: 40px;}
+    25% {background: yellow; }
+    30% {background-color: purple; transform: rotateZ(108deg); left: 60px;}
+    40% {background-color: seagreen; transform: rotateZ(144deg); left: 80px;}
+    50%  {background-color:blue; left:100px; top:0px; transform: rotateZ(0deg)}
+    60% {background-color: snow; transform: rotateZ(-36deg); left: 80px;}
+    70% {background-color: violet; transform: rotateZ(-72deg); left: 60px;}
+    75%  {background-color:green;}
+    80% {background-color: magenta; transform: rotateZ(-108deg); left: 40px;}
+    90% {background-color: mediumblue; transform: rotateZ(-144deg); left: 20px;}
+    100% {background-color:red; left:0px; top:0px; transform: rotateZ(0deg)}
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(./marketing-script.shadow.ttf);
+    font-stretch: extra-expanded;
+}
+
+@font-face {
+    font-family: mySecondFont;
+    src: url(./Carosello.font/Carosello-Regular.ttf);
+    font-stretch: extra-expanded;
+}
+
 /*container of left and right 50:50 split*/
 .section {
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
     top: 1;
-    overflow-x: hidden;
-    padding-top: 20px;
 }
 
 .left {
@@ -115,32 +138,9 @@
 /*start right side styling*/
 .right {
     background-color: rgb(19, 2, 168);
-    /*background-image: url("./images/musical-bgrd.jpg");*/
-    background-size: cover;
-    right: 0;
-    /*display:flex;
-    justify-content: center;*/
+    font-family: mySecondFont;
 }
 
-.split-container {
-    flex: auto;
-}
-
-.centered {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    /*flex-direction: column;*/
-    color: rgb(193, 41, 207);
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 15px;
-}
-
-.options-text{
-    color: black;
-    border: 2px solid black;
-}
 
 .music-btn {
     background-color: rgb(235, 235, 235);
@@ -169,4 +169,43 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+}
+
+.music-sec {
+    display: flex;
+   align-items: center;
+    flex-direction: column;
+}
+
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-bottom: solid 2px rgb(193, 41, 207);
+}
+
+.result-name {
+    color: rgb(193, 41, 207);
+    font-family: myFont;
+    
+}
+
+.result-description {
+    color: rgb(193, 41, 207);
+}
+
+.result-thumbnail {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.jukebox {
+    max-height: 100px;
+    position: relative;
+    max-width: 75px;
+    animation-name: movement;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
 }

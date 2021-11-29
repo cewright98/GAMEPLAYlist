@@ -7,100 +7,120 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>GamePlaylist</title>
+    <title>Document</title>
 </head>
-    <body class="bg-gray-50"> 
-        <header class="text-center">
-            <h1 class="text-5xl">
-                GAME<span class="text-green-600 font-bold">PLAY</span>list
-            </h1>
-        </header>
-        <section class ="split-container">
-        <div class="section left">
-            <!-- This is the games column -->
-            <section class= "flex-col flex">
-                <h2><strong>First:</strong></h2>
-                <!-- Game platform options -->
-                <label for="platforms">Pick a Game Platform: </label>
-                <select name="platforms" id="game-platform">
-                    <option value="all">All</option>
-                    <option value="pc">PC</option>
-                    <option value="browser">Browser</option>
-                </select>
+<body class="bg-gray-50"> 
+    <header class="text-center">
+        <h1 class="text-5xl">
+            GAME<span class="text-green-600 font-bold">PLAY</span>list
+        </h1>
+    </header>
+    <section class ="flex-auto">
+    <div class="h-screen w-3/6 fixed z-10 overflow-x-hidden pt-5 "> <!--section left-->
+        <!-- This is the games column -->
+        <section>
+            <!-- Game platform options -->
+            <label for="platforms">Pick a Game Platform: </label>
+            <select name="platforms" id="game-platform">
+                <option value="all">All</option>
+                <option value="pc">PC</option>
+                <option value="browser">Browser</option>
+            </select>
+            </label>
 
-                <br>
+            <br>
 
-                <!-- Game sorting options -->
-                <label for="number">Results per page: </label>
-                <select name="number" id="game-number">
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                </select>
+            <!-- Game sorting options -->
+            <label for="number">Results per page: </label>
+            <select name="number" id="game-number">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+            </select>
 
-                <br>
+            <br>
 
-                <!-- Game category options -->
-                <label for="categories">Pick a Game Category: </label>
-                <select name="categories" id="game-category">
-                    <option value="action">Action</option>
-                    <option value="anime">Anime</option>
-                    <option value="battle-royale">Battle Royale</option>
-                    <option value="card">Card</option>
-                    <option value="fantasy">Fantasy</option>
-                    <option value="fighting">Fighting</option>
-                    <option value="horror">Horror</option>
-                    <option value="open-world">Open World</option>
-                    <option value="racing">Racing</option>
-                    <option value="shooter">Shooter</option>
-                    <option value="space">Space</option>
-                    <option value="sports">Sports</option>
-                    <option value="strategy">Strategy</option>
-                    <option value="survival">Survival</option>
-                    <option value="zombie">Zombie</option>
-                </select>
-                <br>
-                <button id="game-search-button">Search</button>
-                <img src="assets/images/joypad.png" alt="joystick" height="200px" width="200px">
-                <div class="credit">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            </section>
+            <!-- Game category options -->
+            <label for="categories">Pick a Game Category: </label>
+            <select name="categories" id="game-category">
+                <option value="action">Action</option>
+                <option value="anime">Anime</option>
+                <option value="battle-royale">Battle Royale</option>
+                <option value="card">Card</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="fighting">Fighting</option>
+                <option value="horror">Horror</option>
+                <option value="open-world">Open World</option>
+                <option value="racing">Racing</option>
+                <option value="shooter">Shooter</option>
+                <option value="space">Space</option>
+                <option value="sports">Sports</option>
+                <option value="strategy">Strategy</option>
+                <option value="survival">Survival</option>
+                <option value="zombie">Zombie</option>
+            </select>
+            <br>
+            <button id="game-search-button">Search</button>
+        </section>
 
-            <section id="game-results">
+        <section id="game-results">
 
-            </section>
-        </div>
-        <div class="section right">
-            <!-- This is the music column -->
-            <section class="centered text">
-                <h2>Then:</h2>
-                <!-- Music keyword entry -->
-                <div class="keyword">
-                    <label for="keyword">Search Music by Keyword: </label>
-                    <input class="options-text" list="keyword-datalist" type="text" name="keyword" id="music-keyword">
-                    <datalist id="keyword-datalist">
-        
-                    </datalist>
-                    <br>
-                    <button class="music-btn" id="music-keyword-search">Search</button>
-                    <br>
-                    
-                </div>
-
-                <p>OR</p>
-
-                <!-- Music based on game selection -->
-                <div class="random">
-                    <label for="random">Get Music Recommendations based on your Game Choice!</label>
-                    <br>
-                    <button class="music-btn" name="random" id="music-random-search">Search</button>
-                </div>
+        </section>
+    </div>
+    <div class="section right h-screen w-3/6 fixed z-10 overflow-x-hidden pt-5 right-0 text-lg"> <!--section right-->
+        <!-- This is the music column -->
+        <section class="grid grid-cols-2 text-pink-400 align-top align-baseline">
+            <!-- Music genre options -->
+        <div class="genre">
+            <label for="genres">Pick a Music Genre: </label>
+            <select class="text-black border-black border-2 border-solid" name="genres" id="music-keyword">
+                <option value="blues">Blues</option>
+                <option value="classical">Classical</option>
+                <option value="country">Country</option>
+                <option value="electronic">Electronic</option>
+                <option value="indie">Indie</option>
+                <option value="jazz">Jazz</option>
+                <option value="k-pop">K-Pop</option>
+                <option value="metal">Metal</option>
+                <option value="pop">Pop</option>
+                <option value="r&b">R&B</option>
+                <option value="rap">Rap</option>
+                <option value="rock">Rock</option>
+            </select>
+            <br>
+            <button class="music-btn">Search</button>
+            <br>
             
-            </section>
-            <section id="music-results">
+        </div>
+       
 
-            </section>
+            <!-- Music keyword entry -->
+        <div class="keyword">
+            <label for="keyword">Search Music by Keyword: </label>
+            <input class="text-black border-black border-2 border-solid" type="text" name="keyword">
+            <br>
+            <button class="music-btn" id="music-keyword-search">Search</button>
+            <br>
+            
         </div>
 
-        <script src="./assets/script.js"></script>
-    </body>
+            <!-- Music based on game selection -->
+        <div class="random">
+            <label for="random">Get Music Recommendations based on your Game Choice!</label>
+            <br>
+            <button class="music-btn" name="random" id="music-random-search">Search</button>
+        </div>
+        <img class="jukebox object-scale-down"
+            src="./assets/images/jukebox.png"
+            alt="colorful retro jukebox"/>
+        </section>
+        <section id="music-results" class="music-sec">
+
+        </section>
+        <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </div>
+<!--</section>-->
+    <script src="./assets/script.js"></script>
+    
+</body>
 </html>
