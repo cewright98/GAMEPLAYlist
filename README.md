@@ -1,8 +1,5 @@
 # GamePlaylist
 
-<img width="1435" alt="Screen Shot 2021-11-28 at 9 45 06 PM" src="https://user-images.githubusercontent.com/90666232/143800672-1a5c7883-6eef-4a7a-b757-8d9808033fa3.png">
-
-
 ## Purpose
 A website where the user can search for free online games based on their selected parameters, and then search for music based on the game category selected or user input keyword.
 
