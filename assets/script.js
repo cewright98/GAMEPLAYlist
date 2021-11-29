@@ -47,7 +47,7 @@ var loadGames = function(data, number) {
         var gameListItemName = document.createElement("a");
         gameListItemName.textContent = data[i].title;
         gameListItemName.href = data[i].game_url;
-        gameListItemName.setAttribute("target", "blank");
+        gameListItemName.setAttribute("target", "_blank");
         gameListItemName.classList.add("result-name");
 
         // append link to div
@@ -91,7 +91,7 @@ var loadMusic = function(data) {
         var musicListItemName = document.createElement("a");
         musicListItemName.textContent = data.data[i].title;
         musicListItemName.href = data.data[i].link;
-        musicListItemName.setAttribute("target", "blank");
+        musicListItemName.setAttribute("target", "_blank");
         musicListItemName.classList.add("result-name");
 
         // append link to div
