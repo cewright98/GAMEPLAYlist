@@ -25,6 +25,8 @@ A website where the user can search for free online games based on their selecte
 
 ## Website
 https://cewright98.github.io/GAMEPLAYlist/
+<img width="1439" alt="Screen Shot 2021-11-29 at 9 57 02 AM" src="https://user-images.githubusercontent.com/90212939/143890558-eb36cb03-db52-4cc8-a20b-53c892804f9c.png">
+
 
 ## Contribution
 Built by Claire Wright, Emily Cain, Jake Cheatham, and Nehemias Colon
