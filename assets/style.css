@@ -52,11 +52,11 @@
 
 .left label {
     font-family: 'Mr Dafoe';
-  margin: 5px;
-  font-size: 20px;
-  margin-top: -0.6em;
-  color: white;
-  text-shadow: 0 0 0.05em rgb(222, 113, 255), 0 0 0.2em #0547fe, 0 0 0.3em #0579fe;
+    margin: 5px;
+    font-size: 20px;
+    margin-top: -0.6em;
+    color: white;
+    text-shadow: 0 0 0.05em rgb(222, 113, 255), 0 0 0.2em #0547fe, 0 0 0.3em #0579fe;
 }
 
 .left button {
@@ -97,12 +97,12 @@
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
     @keyframes pulse {
-      0%, 100% {
+    0%, 100% {
         opacity: 1;
-      }
-      90% {
+    }
+    90% {
         opacity: .9;
-      }
+    }
     }
     
 }
@@ -173,7 +173,7 @@
 
 .music-sec {
     display: flex;
-   align-items: center;
+    align-items: center;
     flex-direction: column;
 }
 

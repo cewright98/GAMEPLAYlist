@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Document</title>
+    <title>GamePlaylist</title>
 </head>
 <body class="bg-gray-50"> 
     <header class="text-center">
@@ -16,9 +16,10 @@
         </h1>
     </header>
     <section class ="flex-auto">
-    <div class="h-screen w-3/6 fixed z-10 overflow-x-hidden pt-5 "> <!--section left-->
+    <div class="h-screen w-3/6 fixed z-10 overflow-x-hidden pt-5 section left"> <!--section left-->
         <!-- This is the games column -->
-        <section>
+        <section class= "flex-col flex">
+            <h2><strong>First:</strong></h2>
             <!-- Game platform options -->
             <label for="platforms">Pick a Game Platform: </label>
             <select name="platforms" id="game-platform">
@@ -61,6 +62,8 @@
             </select>
             <br>
             <button id="game-search-button">Search</button>
+            <img src="assets/images/joypad.png" alt="joystick" height="200px" width="200px">
+            <div class="credit">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </section>
 
         <section id="game-results">
