@@ -1,5 +1,7 @@
 var gameResults = document.querySelector("#game-results");
 var musicResults = document.querySelector("#music-results");
+var keywordDatalist = document.querySelector("#keyword-datalist");
+var inputOptionIndex = 0;
 var gameCategory = "";
 
 var getGames = function(platform, category, number) {
@@ -45,7 +47,7 @@ var loadGames = function(data, number) {
         var gameListItemName = document.createElement("a");
         gameListItemName.textContent = data[i].title;
         gameListItemName.href = data[i].game_url;
-        gameListItemName.setAttribute("target", "blank");
+        gameListItemName.setAttribute("target", "_blank");
         gameListItemName.classList.add("result-name");
 
         // append link to div
@@ -89,7 +91,7 @@ var loadMusic = function(data) {
         var musicListItemName = document.createElement("a");
         musicListItemName.textContent = data.data[i].title;
         musicListItemName.href = data.data[i].link;
-        musicListItemName.setAttribute("target", "blank");
+        musicListItemName.setAttribute("target", "_blank");
         musicListItemName.classList.add("result-name");
 
         // append link to div
@@ -131,6 +133,33 @@ var getMusic = function (keyword) {
     });
 };
 
+var addInputOption = function(keyword) {
+    var createDatalistEl = true;
+    for (var i = 0; i < inputOptionIndex; i++) {
+        if (localStorage.getItem(i) === keyword) {
+            createDatalistEl = false;
+        }
+    }
+
+    if (createDatalistEl) {
+        localStorage.setItem(inputOptionIndex, keyword);
+        localStorage.setItem("index", inputOptionIndex);
+        loadDatalist();
+    }
+};
+
+var loadDatalist = function() {
+    inputOptionIndex = localStorage.getItem("index");
+    var str = "";
+    for (var i = 0; i <= inputOptionIndex; i++) {
+        if (localStorage.getItem(i)) {
+            str += "<option value='" + localStorage.getItem(i) + "'>";
+        }
+    }
+    keywordDatalist.innerHTML = str;
+    inputOptionIndex++;
+};
+
 $("#game-search-button").click(function() {
     // clear previous results
     $("#game-results").empty();
@@ -147,9 +176,17 @@ $("#music-keyword-search").click(function() {
     // clear previous results
     $("#music-results").empty();
 
-    var musicKeyword = $("#music-keyword").val();
+    if ($("#music-keyword").val()) {
+        var musicKeyword = $("#music-keyword").val();
 
-    getMusic(musicKeyword);
+        // clear text box
+        var musicKeywordInput = document.querySelector("#music-keyword");
+        musicKeywordInput.value = "";
+    
+        addInputOption(musicKeyword);
+    
+        getMusic(musicKeyword);
+    } 
 });
 
 $("#music-random-search").click(function() {
@@ -212,3 +249,5 @@ $("#music-random-search").click(function() {
         getMusic(musicKeyword);
     }
 });
+
+loadDatalist();
