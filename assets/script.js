@@ -189,6 +189,8 @@ $("#music-keyword-search").click(function() {
     } 
 });
 
+$("#music-")
+
 $("#music-random-search").click(function() {
     // clear previous results
     $("#music-results").empty();
