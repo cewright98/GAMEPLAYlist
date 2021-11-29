@@ -15,10 +15,49 @@
 }
 
 .left {
-    background-color: rgba(226, 24, 125, .5);
+    background-color: rgb(118, 218, 131);
     left: 0;
     display:flex;
     justify-content: center;
+}
+
+.left h2 {
+    text-align: center;
+    font-size: large;
+    margin-bottom: 20px;
+}
+
+.left label {
+    font-family: 'Mr Dafoe';
+  margin: 5px;
+  font-size: 20px;
+  margin-top: -0.6em;
+  color: white;
+  text-shadow: 0 0 0.05em rgb(222, 113, 255), 0 0 0.2em #0547fe, 0 0 0.3em #0579fe;
+}
+
+.left button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    color: #fff;
+    background-color: rgb(138, 138, 138);
+    border-color:rgb(19, 2, 168);
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.left button:hover {background-color: #0547fe}
+
+.left button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.credit {
+    font-size: x-small;
 }
 
 /*start right side styling*/
