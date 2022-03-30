@@ -3,6 +3,7 @@ var musicResults = document.querySelector("#music-results");
 var keywordDatalist = document.querySelector("#keyword-datalist");
 var inputOptionIndex = 0;
 var gameCategory = "";
+var loadingSignal = document.querySelector("#loading-signal");
 
 var getGames = function(platform, category, number) {
     // format api url
@@ -13,7 +14,7 @@ var getGames = function(platform, category, number) {
     }
 
     // add proxy to resolve CORS error
-    gameApiUrl = "https://api.codetabs.com/v1/proxy?quest=" + gameApiUrl;
+    gameApiUrl = "https://cors-anywhere.herokuapp.com/" + gameApiUrl;
 
     // fetch api url
     fetch(gameApiUrl).then(function(response) {
@@ -72,6 +73,9 @@ var loadGames = function(data, number) {
         // append result to results section
         gameResults.append(gameListItem);
     }
+
+    // remove loading signal
+    loadingSignal.classList.add("hidden")
 }; 
 
 var loadMusic = function(data) {
@@ -116,12 +120,15 @@ var loadMusic = function(data) {
         // append result to results section
         musicResults.append(musicListItem);
     }
+
+    // remove loading signal
+    loadingSignal.classList.add("hidden")
 };
 
 var getMusic = function (keyword) {
     var musicApiUrl = "https://api.deezer.com/search/playlist?q=" + keyword;
 
-    musicApiUrl = "https://api.codetabs.com/v1/proxy?quest=" + musicApiUrl;
+    musicApiUrl = "https://cors-anywhere.herokuapp.com/" + musicApiUrl;
     
     fetch(musicApiUrl).then(function(response) {
         if (response.ok) {
@@ -165,6 +172,9 @@ $("#game-search-button").click(function() {
     $("#game-results").empty();
     $("#music-results").empty();
 
+    // show loading signal
+    loadingSignal.classList.remove("hidden")
+
     var gamePlatform = $("#game-platform").val();
     gameCategory = $("#game-category").val();
     var gameNumber = $("#game-number").val();
@@ -182,14 +192,17 @@ $("#music-keyword-search").click(function() {
         // clear text box
         var musicKeywordInput = document.querySelector("#music-keyword");
         musicKeywordInput.value = "";
+
+        // show loading signal
+        loadingSignal.classList.remove("hidden")
     
         addInputOption(musicKeyword);
     
         getMusic(musicKeyword);
-    } 
+    } else {
+      musicResults.textContent = "Please enter a keyword to search!";
+    }
 });
-
-$("#music-")
 
 $("#music-random-search").click(function() {
     // clear previous results
@@ -198,8 +211,11 @@ $("#music-random-search").click(function() {
     var musicKeyword = "";
 
     if (!gameCategory) {
-        musicResults.textContent = "Please search for a game first!"
+        musicResults.textContent = "Please search for a game first!";
     } else {
+      // show loading signal
+      loadingSignal.classList.remove("hidden")
+
         switch(gameCategory) {
             case "action": 
                 musicKeyword = "banger";
